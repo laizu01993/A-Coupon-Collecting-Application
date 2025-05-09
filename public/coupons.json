@@ -1,0 +1,118 @@
+
+[
+    {
+      "_id": "brand1",
+      "brand_name": "Daraz",
+      "rating": 4.7,
+      "description": "Bangladesh’s biggest online marketplace for everything.",
+      "brand_logo": "https://ibb.co.com/zh5bXKjQ",
+      "shop_Link": "https://www.daraz.com.bd/",
+      "category": "E-commerce",
+      "isSaleOn": true,
+      "coupons": [
+        {
+          "coupon_code": "DARAZ100",
+          "description": "Get ৳100 off on orders above ৳1000",
+          "expiry_date": "2025-12-31",
+          "condition": "Minimum order ৳1000",
+          "cupon_type": "Flat"
+        }
+      ]
+    },
+    {
+      "_id": "brand2",
+      "brand_name": "Pickaboo",
+      "rating": 4.4,
+      "description": "Top online electronics store in Bangladesh.",
+      "brand_logo": "https://ibb.co.com/8DZLG02m",
+      "shop_Link": "https://www.pickaboo.com/",
+      "category": "Electronics",
+      "isSaleOn": false,
+      "coupons": [
+        {
+          "coupon_code": "PICK20",
+          "description": "Flat 20% off on accessories",
+          "expiry_date": "2025-11-15",
+          "condition": "Valid for accessories only",
+          "cupon_type": "Percentage"
+        }
+      ]
+    },
+    {
+      "_id": "brand3",
+      "brand_name": "Chaldal",
+      "rating": 4.6,
+      "description": "Buy groceries and essentials online with fast delivery.",
+      "brand_logo": "https://ibb.co.com/fYqF89BY",
+      "shop_Link": "https://www.chaldal.com/",
+      "category": "Grocery",
+      "isSaleOn": true,
+      "coupons": [
+        {
+          "coupon_code": "GROCERY10",
+          "description": "10% off on your first order",
+          "expiry_date": "2025-08-31",
+          "condition": "Only for new users",
+          "cupon_type": "Percentage"
+        }
+      ]
+    },
+    {
+      "_id": "brand4",
+      "brand_name": "Evaly",
+      "rating": 3.9,
+      "description": "All kinds of products from electronics to daily needs.",
+      "brand_logo": "https://ibb.co.com/Y4jpXFR6",
+      "shop_Link": "https://www.evaly.com.bd/",
+      "category": "E-commerce",
+      "isSaleOn": false,
+      "coupons": [
+        {
+          "coupon_code": "EVALYDEAL",
+          "description": "৳200 off on orders above ৳2000",
+          "expiry_date": "2025-10-01",
+          "condition": "Valid for selected products",
+          "cupon_type": "Flat"
+        }
+      ]
+    },
+    {
+      "_id": "brand5",
+      "brand_name": "Rokomari",
+      "rating": 4.8,
+      "description": "Online bookstore for academic, fiction, and more.",
+      "brand_logo": "https://ibb.co.com/F4QK08k7",
+      "shop_Link": "https://www.rokomari.com/",
+      "category": "Books",
+      "isSaleOn": true,
+      "coupons": [
+        {
+          "coupon_code": "BOOKLOVER",
+          "description": "15% off on all books",
+          "expiry_date": "2025-07-20",
+          "condition": "Maximum discount ৳150",
+          "cupon_type": "Percentage"
+        }
+      ]
+    },
+    {
+      "_id": "brand6",
+      "brand_name": "AjkerDeal",
+      "rating": 4.2,
+      "description": "Best deals on fashion and lifestyle products.",
+      "brand_logo": "https://ibb.co.com/GQ49ssvx",
+      "shop_Link": "https://ajkerdeal.com/",
+      "category": "Fashion",
+      "isSaleOn": false,
+      "coupons": [
+        {
+          "coupon_code": "FASHION50",
+          "description": "৳50 off on selected fashion items",
+          "expiry_date": "2025-06-30",
+          "condition": "Minimum purchase ৳500",
+          "cupon_type": "Flat"
+        }
+      ]
+    }
+  ]
+  
