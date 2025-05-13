@@ -17,9 +17,10 @@ const Header = () => {
             </nav>
             {/* auth section */}
             <div className="font-medium">
-                <Link>Login</Link>
+                <Link to="login">Login</Link>
                 <br />
-                <Link>Register</Link>
+                <Link 
+                to="register">Register</Link>
             </div>
         </div>
     );
