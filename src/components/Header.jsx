@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
+    const {user} = useContext(AuthContext);
     return (
         <div className="w-11/12 mx-auto my-4 flex justify-between items-center">
             {/* Logo */}
@@ -16,12 +19,19 @@ const Header = () => {
                 <Link>About Dev</Link>
             </nav>
             {/* auth section */}
-            <div className="font-medium">
-                <Link to="login">Login</Link>
-                <br />
-                <Link 
-                to="register">Register</Link>
-            </div>
+            {user ?
+                <>
+                    <div className="flex items-center gap-2">
+                        <img className="w-10 h-10 rounded-full " src={user.photoURL} />
+                        <span>{user.name}</span>
+                    </div>
+                </> : <div className="font-medium">
+                    <Link to="login">Login</Link>
+                    <br />
+                    <Link
+                        to="register">Register</Link>
+                </div>}
+
         </div>
     );
 };
