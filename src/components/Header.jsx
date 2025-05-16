@@ -3,7 +3,18 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+
+    const {user, logOut} = useContext(AuthContext);
+    console.log(user);
+    
+
+    const handleLogout = () =>{
+        logOut()
+        .then(() =>{
+            console.log('user logout successfully')
+        })
+        .catch(error => console.log('ERROR',error.message))
+    };
     return (
         <div className="w-11/12 mx-auto my-4 flex justify-between items-center">
             {/* Logo */}
@@ -20,17 +31,18 @@ const Header = () => {
             </nav>
             {/* auth section */}
             {user ?
-                <>
-                    <div className="flex items-center gap-2">
+                
+                    (<div className="flex items-center gap-2">
                         <img className="w-10 h-10 rounded-full " src={user.photoURL} />
-                        <span>{user.name}</span>
-                    </div>
-                </> : <div className="font-medium">
-                    <Link to="login">Login</Link>
+                        <span>{user.email}</span>
+                        <button onClick={handleLogout} className="btn btn-sm bg-red-200 text-red-800">Logout</button>
+                    </div>)
+                 : (<div className="font-medium">
+                    <Link to="/login">Login</Link>
                     <br />
                     <Link
-                        to="register">Register</Link>
-                </div>}
+                        to="/register">Register</Link>
+                </div>)}
 
         </div>
     );
