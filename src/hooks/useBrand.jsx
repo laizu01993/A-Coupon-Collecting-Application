@@ -10,7 +10,8 @@ const useBrand = () => {
         .then((res) => res.json())
         .then ((data) =>{
             setBrands(data)
-            .catch((error) => console.error("error fetching brand data", error));
+        })
+            .catch((error) => {console.error("error fetching brand data", error);
             });
     }, []);
     
