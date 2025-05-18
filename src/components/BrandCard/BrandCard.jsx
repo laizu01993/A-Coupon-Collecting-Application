@@ -1,6 +1,22 @@
+import { useContext } from "react";
 import { FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const BrandCard = ({brand}) =>{
+
+    const {user} = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const handleViewCoupons = () =>{
+        if(user) {
+            navigate(`/brand/${brand._id}`);
+        } else {
+            navigate("/login");
+        }
+    };
+
     return(
         <div className="border rounded-4xl p-6 shadow-md flex-col gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-6">
             {/* Top row: Logo + Name + Rating */}
@@ -18,7 +34,7 @@ const BrandCard = ({brand}) =>{
 
             {/* Bottom: button + sale text */}
             <div className="flex justify-between items-center">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded-4xl">View Coupons</button>
+                <button onClick={handleViewCoupons} className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded-4xl">View Coupons</button>
                 {brand.isSaleOn && (
                     <span className="text-red-500 font-bold animate-bounce">Sale is On!</span>
                 )}

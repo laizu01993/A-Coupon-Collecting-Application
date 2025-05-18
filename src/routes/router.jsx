@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home";
 import Brands from "../pages/Brands/Brands";
 import Login from "../pages/login/login";
 import SignUp from "../pages/SignUp/SignUp";
+import BrandsCoupon from "../components/BrandsCoupon/BrandsCoupon";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
 
@@ -27,6 +29,16 @@ const router = createBrowserRouter([
             {
                 path:"/register",
                 element:<SignUp></SignUp>
+            },
+            {
+                path: '/brand/:id',
+                element:<PrivateRoute><BrandsCoupon></BrandsCoupon></PrivateRoute>,
+                loader: async ({params}) =>{
+                    const res = await fetch('/coupons.json');
+                    const data = await res.json();
+                    const brandData = data.find(brand => brand._id === params.id);
+                    return brandData;
+                }
             }
         ]
     }
