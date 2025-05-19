@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
 
@@ -21,13 +22,14 @@ const SignUp = () => {
         createNewUser(email, password)
             .then(result => {
                 console.log(result.user);
+                toast.success("register successful!");
                 e.target.reset();
 
                 navigate('/');
             })
             .catch(error => {
                 console.log('ERROR', error.message);
-
+                toast.error("failed to login." + error.message)
             })
 
     }

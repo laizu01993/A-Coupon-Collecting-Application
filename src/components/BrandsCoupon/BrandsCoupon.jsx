@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 const BrandsCoupon = () =>{
 
     const brand = useLoaderData();
-
+    
     return (
         <div>
             <div className="text-center">
