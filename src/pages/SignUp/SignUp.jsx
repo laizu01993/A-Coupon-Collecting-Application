@@ -1,13 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
+import { FaEye } from "react-icons/fa";
 
 const SignUp = () => {
 
     const navigate = useNavigate();
 
     const { createNewUser } = useContext(AuthContext);
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,6 +21,14 @@ const SignUp = () => {
         const email = form.get("email")
         const password = form.get("password")
         console.log({ name, photo, email, password });
+
+        // Password validation using regex
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+        if (!passwordRegex.test(password)) {
+            toast.error("Password must be at least 6 characters and include both uppercase and lowercase letters.");
+            return;
+        }
 
         createNewUser(email, password)
             .then(result => {
@@ -54,10 +65,16 @@ const SignUp = () => {
                         <input type="email"
                             name="email" className="input" placeholder="Email"
                             required />
+
                         <label className="label mt-2">Password</label>
-                        <input type="password"
+                        <div className="flex items-center gap-2 relative">
+                            <input type="password"
                             name="password" className="input" placeholder="Password"
-                            required />
+                                required />
+                            <button className="btn btn-xs absolute right-6">
+                                <FaEye></FaEye>
+                            </button>
+                        </div>
                         <div className="flex justify-center mt-4">
                             <button className="btn btn-neutral w-full bg-blue-300 text-blue-950 ">Register</button>
                         </div>
