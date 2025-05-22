@@ -13,7 +13,7 @@ const TopBrand = () => {
                 {
                     brands.map((brand) =>(
                         
-                        <div className="mx-8">
+                        <div key={brand._id} className="mx-8">
                             <Link to="/brands">
                         <img key={brand._id}
                         src={brand.brand_logo}

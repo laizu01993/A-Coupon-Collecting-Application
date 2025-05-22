@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
 
@@ -15,12 +15,25 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // get form data
-        const form = new FormData(e.target);
-        const name = form.get("name")
-        const photo = form.get("photo")
-        const email = form.get("email")
-        const password = form.get("password")
-        console.log({ name, photo, email, password });
+        // const form = new FormData(e.target);
+        // const name = form.get("name")
+        // const photo = form.get("photo")
+        // const email = form.get("email")
+        // const password = form.get("password")
+        // console.log({ name, photo, email, password });
+        const name = e.target.name.value;
+        const photo = e.target.photo.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const terms = e.target.terms.checked;
+        console.log(name, photo, email, password, terms);
+
+        // terms condition
+        if(!terms){
+            toast.error("Please accept our terms and condition")
+            return;
+        }
+        
 
         // Password validation using regex
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -68,13 +81,25 @@ const SignUp = () => {
 
                         <label className="label mt-2">Password</label>
                         <div className="flex items-center gap-2 relative">
-                            <input type="password"
-                            name="password" className="input" placeholder="Password"
+                            <input type={showPassword ? "text" : "password"}
+                                name="password" className="input" placeholder="Password"
                                 required />
-                            <button className="btn btn-xs absolute right-6">
-                                <FaEye></FaEye>
+                            <button
+                                onClick={() => setShowPassword(!showPassword)} className="btn btn-xs absolute right-6">
+                                {
+                                    showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
+                                }
                             </button>
                         </div>
+                        {/* checkbox */}
+                        <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-64 border p-4">
+                            
+                            <label className="label">
+                                <input type="checkbox"
+                                name="terms" className="checkbox" />
+                                Accept Our Terms And Conditions
+                            </label>
+                        </fieldset>
                         <div className="flex justify-center mt-4">
                             <button className="btn btn-neutral w-full bg-blue-300 text-blue-950 ">Register</button>
                         </div>
