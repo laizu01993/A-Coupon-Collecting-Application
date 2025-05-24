@@ -15,7 +15,7 @@
           "description": "Get ৳100 off on orders above ৳1000",
           "expiry_date": "2025-12-31",
           "condition": "Minimum order ৳1000",
-          "cupon_type": "Flat"
+          "coupon_type": "Flat"
         }
       ]
     },

@@ -26,7 +26,7 @@ const Header = () => {
             <nav className="flex gap-6 items-center text-gray-700 font-medium">
                 <Link to="/">Home</Link>
                 <Link to="/brands">Brands</Link>
-                <Link>My Profile</Link>
+                <Link to="/my-profile">My Profile</Link>
                 <Link>About Dev</Link>
             </nav>
             {/* auth section */}

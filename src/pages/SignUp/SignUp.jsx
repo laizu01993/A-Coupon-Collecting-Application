@@ -8,9 +8,22 @@ const SignUp = () => {
 
     const navigate = useNavigate();
 
-    const { createNewUser } = useContext(AuthContext);
+    const { createNewUser, signInWithGoogle } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false);
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result.user);
+                toast.success("login successful!");
+                navigate('/')
+            })
+            .catch(error => {
+                console.log('ERROR', error.message);
+                toast.error("failed to login." + error.message)
+            })
+        }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,11 +42,11 @@ const SignUp = () => {
         console.log(name, photo, email, password, terms);
 
         // terms condition
-        if(!terms){
+        if (!terms) {
             toast.error("Please accept our terms and condition")
             return;
         }
-        
+
 
         // Password validation using regex
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -91,12 +104,13 @@ const SignUp = () => {
                                 }
                             </button>
                         </div>
+
                         {/* checkbox */}
                         <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-64 border p-4">
-                            
+
                             <label className="label">
                                 <input type="checkbox"
-                                name="terms" className="checkbox" />
+                                    name="terms" className="checkbox" />
                                 Accept Our Terms And Conditions
                             </label>
                         </fieldset>
@@ -106,6 +120,9 @@ const SignUp = () => {
 
                     </form>
                     <p className="font-semibold text-center">Already Have An Account ? <Link className="text-red-500 font-bold" to="/login">Login</Link></p>
+                    <p className="flex justify-center">
+                        <button onClick={handleGoogleSignIn} className="btn ">Google</button>
+                    </p>
                 </div>
             </div>
         </div>

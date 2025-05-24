@@ -6,6 +6,7 @@ import Login from "../pages/login/login";
 import SignUp from "../pages/SignUp/SignUp";
 import BrandsCoupon from "../components/BrandsCoupon/BrandsCoupon";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import MyProfile from "../components/MyProfile/MyProfile";
 
 
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
             {
                 path:"/register",
                 element:<SignUp></SignUp>
+            },
+            {
+                path:"/my-profile",
+                element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
             },
             {
                 path: '/brand/:id',

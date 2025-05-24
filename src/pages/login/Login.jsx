@@ -6,11 +6,11 @@ import toast from "react-hot-toast";
 const Login = () => {
     const location = useLocation();
     console.log(location);
-    
+
 
     const navigate = useNavigate();
 
-    const {signInUser, signInWithGoogle} = useContext(AuthContext);
+    const { signInUser, signInWithGoogle } = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,32 +20,32 @@ const Login = () => {
         console.log({ email, password });
 
         signInUser(email, password)
-        .then(result =>{
-            console.log(result.user);
-            e.target.reset()
-            toast.success("login successful!");
-            navigate('/');
-        })    
-        .catch(error =>{
-            console.log('ERROR', error.message);
-             toast.error("failed to login." + error.message)
-        })
-      
+            .then(result => {
+                console.log(result.user);
+                e.target.reset()
+                toast.success("login successful!");
+                navigate('/');
+            })
+            .catch(error => {
+                console.log('ERROR', error.message);
+                toast.error("failed to login." + error.message)
+            })
+
     }
 
-    const handleGoogleSignIn = () =>{
+    const handleGoogleSignIn = () => {
         signInWithGoogle()
-        .then(result =>{
-            console.log(result.user);
-            toast.success("login successful!");
-            navigate('/')
-        })
-        .catch(error =>{
-            console.log('ERROR', error.message);
-            toast.error("failed to login." + error.message)
-        })
+            .then(result => {
+                console.log(result.user);
+                toast.success("login successful!");
+                navigate('/')
+            })
+            .catch(error => {
+                console.log('ERROR', error.message);
+                toast.error("failed to login." + error.message)
+            })
     }
-    
+
     return (
         <div className="hero bg-base-200 min-h-screen mx-auto w-11/12 mb-4">
 
@@ -54,7 +54,7 @@ const Login = () => {
 
                 <div className="card-body ">
                     <form onSubmit={handleSubmit} className="form">
-                        
+
                         <label className="label mt-2">Email</label>
                         <input type="email"
                             name="email" className="input" placeholder="Email"
@@ -63,6 +63,7 @@ const Login = () => {
                         <input type="password"
                             name="password" className="input" placeholder="Password"
                             required />
+                        <div><a className="link link-hover">Forgot password?</a></div>
                         <div className="flex justify-center mt-4">
                             <button className="btn btn-neutral w-full bg-blue-300 text-blue-950 ">Login</button>
                         </div>
