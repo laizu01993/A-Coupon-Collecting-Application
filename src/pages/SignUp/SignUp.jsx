@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
 
@@ -63,11 +64,25 @@ const SignUp = () => {
                 e.target.reset();
 
                 navigate('/');
+
+                // update profile name and photo url
+                const profile = {
+                    displayName: name,
+                    photoUrl: photo
+                }
+                updateProfile(AuthContext.currentUser, profile)
+                .then(() =>{
+                    console.log('user profile updated');
+                    
+                })
+                .catch(error => console.log('user profile update error'));
+                
             })
             .catch(error => {
                 console.log('ERROR', error.message);
                 toast.error("failed to login." + error.message)
             })
+            
 
     }
     return (
