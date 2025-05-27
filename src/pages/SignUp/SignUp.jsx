@@ -16,31 +16,25 @@ const SignUp = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 toast.success("login successful!");
                 navigate('/')
             })
             .catch(error => {
-                console.log('ERROR', error.message);
+                // console.log('ERROR', error.message);
                 toast.error("failed to login." + error.message)
             })
         }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // get form data
-        // const form = new FormData(e.target);
-        // const name = form.get("name")
-        // const photo = form.get("photo")
-        // const email = form.get("email")
-        // const password = form.get("password")
-        // console.log({ name, photo, email, password });
+        
         const name = e.target.name.value;
         const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const terms = e.target.terms.checked;
-        console.log(name, photo, email, password, terms);
+        // console.log(name, photo, email, password, terms);
 
         // terms condition
         if (!terms) {
@@ -59,7 +53,7 @@ const SignUp = () => {
 
         createNewUser(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 toast.success("register successful!");
                 e.target.reset();
 
@@ -72,14 +66,14 @@ const SignUp = () => {
                 }
                 updateProfile(AuthContext.currentUser, profile)
                 .then(() =>{
-                    console.log('user profile updated');
+                    // console.log('user profile updated');
                     
                 })
-                .catch(error => console.log('user profile update error'));
+                // .catch(error => console.log('user profile update error'));
                 
             })
             .catch(error => {
-                console.log('ERROR', error.message);
+                // console.log('ERROR', error.message);
                 toast.error("failed to login." + error.message)
             })
             

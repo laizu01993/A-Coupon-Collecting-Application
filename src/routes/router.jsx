@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import BrandsCoupon from "../components/BrandsCoupon/BrandsCoupon";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import MyProfile from "../components/MyProfile/MyProfile";
+import NotFound from "../pages/NotFound/NotFound";
 
 
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>
+            },
+            {
+                path: "*",
+                element: <NotFound></NotFound>
             },
             {
                 path: "/brands",

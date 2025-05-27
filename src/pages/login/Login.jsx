@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
     const location = useLocation();
-    console.log(location);
+    // console.log(location);
 
 
     const navigate = useNavigate();
@@ -17,17 +17,17 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log({ email, password });
+        // console.log({ email, password });
 
         signInUser(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 e.target.reset()
                 toast.success("login successful!");
                 navigate('/');
             })
             .catch(error => {
-                console.log('ERROR', error.message);
+                // console.log('ERROR', error.message);
                 toast.error("failed to login." + error.message)
             })
 
@@ -36,12 +36,12 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 toast.success("login successful!");
                 navigate('/')
             })
             .catch(error => {
-                console.log('ERROR', error.message);
+                // console.log('ERROR', error.message);
                 toast.error("failed to login." + error.message)
             })
     }

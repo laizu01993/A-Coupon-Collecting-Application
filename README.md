@@ -1,12 +1,68 @@
-# React + Vite
+# Discount PRO 🧾
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [https://vengeful-pencil.surge.sh](https://vengeful-pencil.surge.sh/)
 
-Currently, two official plugins are available:
+## 📌 Project Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Discount PRO is a coupon collecting application built as part of a programming assignment. It helps users discover brand-specific discount coupons, manage their profiles, and update user information securely using Firebase Authentication.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Key Features
+
+- 🔐 **Authentication**
+  - Email/Password sign up and login
+  - Google Sign-In
+  - Protected (private) routes
+
+- 🏷️ **Brands & Coupons**
+  - Dynamic brand and coupon data loading
+  - Brand-wise coupon listing with details like expiry, conditions, etc.
+
+- 🙍 **User Profile**
+  - View user photo, name, and email
+  - Update profile photo and display name
+  - Personalized welcome message and UI
+
+- ❌ **Error Handling**
+  - Custom 404 page for invalid routes
+
+- 💻 **Responsive Design**
+  - Fully responsive for mobile, tablet, and desktop
+  - Hamburger menu for smaller screens
+
+---
+
+## ⚙️ Tech Stack
+
+- **React**
+- **Vite**
+- **Tailwind CSS**
+- **DaisyUI**
+- **React Router DOM**
+- **Firebase Authentication**
+- **React Icons**
+- **React Hot Toast**
+- **Surge (for deployment)**
+
+---
+
+## 📦 NPM Packages Used
+
+- `react-router-dom`
+- `firebase`
+- `react-icons`
+- `react-hot-toast`
+- `daisyui`
+- `tailwindcss`
+
+---
+
+## 🚀 Deployment
+
+This app is deployed using [Surge](https://surge.sh). To deploy:
+
+```bash
+npm run build
+cd dist
+surge
